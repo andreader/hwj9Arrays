@@ -20,11 +20,10 @@ public class Main {
     public static void task1() {
         System.out.println();
         System.out.println("Задание 2.1");
+        int [] arr = generateRandomArray();
         int sum = 0;
-        for (int i = 0; i < generateRandomArray().length; i++) {
-            int elm = generateRandomArray()[i];
-            sum += elm;
-            System.out.printf("День %d, траты составили %d. %n", i + 1, elm);
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
         }
         System.out.printf("Сумма трат за месяц составила %d рублей. %n", sum);
     }
@@ -32,16 +31,15 @@ public class Main {
     public static void task2() {
         System.out.println();
         System.out.println("Задание 2.2");
-        int min = 1_000_000;
-        int max = -1;
+        int [] arr = generateRandomArray();
+        int min = arr [0];
+        int max = arr [0];
         int i = 0;
-        while (i < generateRandomArray().length) {
-            int elm = generateRandomArray()[i];
-            if (elm < min) {
-                min = elm;
-            }
-            if (elm > max) {
-                max = elm;
+        while (i < arr.length) {
+            if (arr [i] < min) {
+                min = arr [i];
+            } else if (arr [i] > max) {
+                max = arr [i];
             }
             i++;
         }
@@ -52,14 +50,14 @@ public class Main {
     public static void task3() {
         System.out.println();
         System.out.println("Задание 2.3");
+        int[] arr = generateRandomArray();
         int sum = 0;
         int average = 0;
-        for (int i = 0; i < generateRandomArray().length; i++) {
-            int elm = generateRandomArray()[i];
-            sum += elm;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr [i];
         }
-        average = sum / generateRandomArray().length;
-        int tail = sum % generateRandomArray().length;
+        average = sum / arr.length;
+        int tail = sum % arr.length;
         System.out.printf("Средняя сумма трат за месяц составила %d рублей %d копеек. %n", average, tail);
     }
 
